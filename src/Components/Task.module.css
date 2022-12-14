@@ -1,0 +1,74 @@
+
+
+.list__task {
+    margin: 0.2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding:0.2rem;
+    display: flex;
+    align-items: center;
+    background-color: rgb(34, 33, 33);
+}
+.list__task:hover {
+    border: 2px solid rgba(255, 235, 238, 0.488);
+}
+
+.list__task__checkbox {
+  appearance: none;
+  background-color: #fff;
+  margin: 0 0.5rem;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+.list__task__checkbox::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em rgb(60, 57, 57);
+}
+
+.list__task__checkbox:checked::before {
+  transform: scale(1);
+}
+
+/* .checkbox-custom {
+    position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+} */
+
+.list__task__text {
+    /* border: 1px solid green; */
+    padding: 0.1rem;
+    flex-grow: 2;
+}
+.list__task__btn {
+    align-items: flex-end;
+    margin: 0.1rem 0.1rem 0.1rem 0.5rem;
+    width:fit-content;
+}
+
+.list__task__btn--edit:hover {
+    background-color: #574d4d;
+    border:none;
+}
+
+.list__task__btn--delete:hover {
+    background-color: #854444;
+    border:none;
+}
+
+/* info: https://moderncss.dev/pure-css-custom-checkbox-style/ */

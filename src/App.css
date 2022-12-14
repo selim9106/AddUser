@@ -1,41 +1,24 @@
-#root {
-  max-width: 1280px;
+.header {
   margin: 0 auto;
-  padding: 2rem;
+  width: fit-content;
+  padding: 1rem;
+  background: rgb(116, 116, 116);
+  background: linear-gradient(
+    0deg,
+    rgb(72, 73, 73) 0%,
+    rgb(148, 148, 148) 51%,
+    rgb(66, 69, 74) 97%
+  );
+  border-radius: 2rem;
+  box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.75);
+}
+.header__title {
+  padding: 1rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.main {
+  /* border: 1px solid rgb(76, 255, 6); */
+  margin: 1rem auto;
+  padding: 1rem;
 }

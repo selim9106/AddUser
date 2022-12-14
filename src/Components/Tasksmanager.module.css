@@ -1,0 +1,47 @@
+.main__section__options {
+    margin: 1rem 0;
+    background: rgb(61, 59, 59);
+    border-radius: 0.7rem;
+    padding: 1rem;
+}
+
+.options__container {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* flex-direction: column; */
+}
+.options__input {
+    appearance: none;
+  background-color: #fff;
+  margin: 0 0.5rem;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+.options__input::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em rgb(60, 57, 57);
+}
+
+.options__input:checked::before {
+  transform: scale(1);
+}
+.options__label {
+    flex-grow: 2;
+}
+.options__btn {
+    align-self: flex-end;
+}
