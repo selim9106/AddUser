@@ -1,24 +1,28 @@
-// import { useState } from 'react'
-import './reset.css'
-import './App.css'
-import Form from './Components/Form';
-import Tasklist from './Components/Tasklist';
+import { useState } from "react";
+import "./reset.css";
+import "./App.css";
+import Form from "./Components/Form";
+import Tasklist from "./Components/Tasklist";
 
 const initialtasks = [
   {
     id: 1,
     title: "Task1",
-    done: false,
+    selected: true,
   },
   {
     id: 2,
     title: "Task2",
-    done: false,
+    selected: false,
   },
 ];
 function App() {
+  const [taskslist, setTaskslist] = useState(initialtasks);
 
-  // const [taskslist, setTaskslist] = useState(initialtasks);
+  const deleteHandler = (id) => {
+    const filteredTasks = taskslist.filter((task) => task.id !== id);
+    setTaskslist(filteredTasks);
+  };
 
   return (
     <div className="App">
@@ -28,11 +32,11 @@ function App() {
       <main className="main">
         <section className="main__section">
           <Form />
-          <Tasklist tasks={initialtasks} />
+          <Tasklist tasks={taskslist} onDelete={deleteHandler} />
         </section>
       </main>
     </div>
   );
 }
 
-export default App
+export default App;
