@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import styles from './Tasksmanager.module.css'
 
-const Tasksmanager = (props) => {
-  const [checkboxstatus, setCheckBoxStatus] = useState(false)
-  
-  const selectAllHandler = () => {
-    setCheckBoxStatus(current => !current);
-    props.onSelectAll();
-  }
+const Tasksmanager = ({ onChange, allCheckBoxStatus }) => {
+
   return (
     <details className={styles["main__section__options"]}>
       <div className={styles["options__container"]}>
@@ -16,9 +11,9 @@ const Tasksmanager = (props) => {
           name="selectall"
           id="selectall"
           aria-label="select-all"
-          className={ styles["options__input"] }
-          onChange={ selectAllHandler }
-          checked={ checkboxstatus }
+          className={styles["options__input"]}
+          onChange={onChange}
+          checked={allCheckBoxStatus}
         />
         <label htmlFor="selectall" className={styles["options__label"]}>
           Select all
@@ -29,5 +24,5 @@ const Tasksmanager = (props) => {
       <summary className={styles["options__summary"]}>Manage</summary>
     </details>
   );
-}
+};
 export default Tasksmanager

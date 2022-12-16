@@ -1,17 +1,15 @@
-import { useState } from "react";
+import {  useState } from "react";
 import styles from "./Task.module.css";
 
-const CheckBox = (props) => {
-  const statusHandler = (e) => {
-    props.onSelect();
-  }
+const CheckBox = ({selected, onChange}) => {
   return (
     <input
       type="checkbox"
       className={styles["list__task__checkbox"]}
       aria-label="checkbox"
-      checked={props.checkboxStatus}
-      onChange={statusHandler}
+      checked={ selected }
+      onChange={onChange}
+      
     />
   );
 }
@@ -44,26 +42,20 @@ const DeleteBtn = (props) => {
 };
 
 // *MAIN "Task" COMPONENT
-const Task = (props) => {
-  let { id, title, selected } = props.data;
+const Task = ({data, onDelete, onChange}) => {
+  let { id, title, selected } = data;
   let [taskname, setTaskName] = useState(title);
-  const [checkboxstatus, setCheckBoxStatus] = useState(selected);
-  // const selectAllTasks = () => { console.log("test") 
-  //   // setCheckBoxStatus(true)
-  // }
 
-  const updateCheckStatus = () => {
-    setCheckBoxStatus((current) => !current);
-  };
   const editTask = (e) => {
     setTaskName("test");
   };
   const deleteTask = (e) => {
-    props.onDelete(id);
+    onDelete(id);
   };
+  
   return (
-    <li className={styles["list__task"]} id={id}>
-      <CheckBox onSelect={ updateCheckStatus } checkboxStatus={ checkboxstatus }  />
+    <li className={ styles["list__task"] } id={ id }>
+      <CheckBox selected={ selected } onChange={onChange} />
       <p className={styles["list__task__text"]}>{taskname}</p>
       <EditBtn onEdit={editTask} />
       <DeleteBtn onDelete={deleteTask} />

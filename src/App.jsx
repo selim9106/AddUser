@@ -32,7 +32,7 @@ function App() {
       <main className="main">
         <section className="main__section">
           <Form />
-          <Tasklist tasks={taskslist} onDelete={deleteHandler} />
+          <Tasklist tasks={taskslist} setTaskslist={setTaskslist} onDelete={deleteHandler} />
         </section>
       </main>
     </div>
